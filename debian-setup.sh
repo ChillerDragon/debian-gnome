@@ -74,6 +74,12 @@ echo "Install dash to dock extension at extensions->Get more extensions"
 echo "Then goto dash to dock settings and set the menu bar where you want"
 gnome-tweak-tool
 
+# This alias allows to launch the files browser from commandline
+# in the windows style by typing 'start <path>'
+# sadly the mac style 'open <path>' is not possible
+# because open is a linux command already ._.
+echo "create start alias for file system..."
+echo "alias start='xdg-open'" >> ~/.bash_aliases
 
 # Let's fix some crucial bugs related to the razer blade stealth
 # They might occur on other razer laptops aswell.
