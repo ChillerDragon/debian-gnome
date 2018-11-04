@@ -108,5 +108,21 @@ echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/ 
 sudo apt-get update
 sudo apt-get install openrazer-meta
 
+# Razer configs for X11
+# make sure the folder exsist
+# /usr/share/X11/xorg.conf.d
+# if not it might be the wrong place
+# try to execute a find command to find it
+# sudo find / -name "*xorg.conf*"
+echo "Add some razer specific config..."
+echo '
+Section "InputClass"
+
+    Identifier "Disable built-in keyboard"
+    MatchIsKeyboard "on" MatchProduct "AT Raw Set 2 keyboard" Option "Ignore" "true"
+
+EndSection
+' > sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
+
 
 
