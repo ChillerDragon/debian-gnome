@@ -35,10 +35,10 @@
 #
 # Check if the network connection is working. And update the system.
 su root
-apt-get update
-apt-get upgrade
+apt-get update -y
+apt-get upgrade -y
 # Then install sudo so you don't have to use the root user
-apt-get install sudo
+apt-get install sudo -y
 # replace chiller with your username of the account that is not root
 adduser chiller sudo
 # switch to that account
@@ -102,11 +102,11 @@ echo "an backup of your old grub config was saved to /etc/default/grub_$time_now
 
 
 # Installing curl and razer software
-sudo apt-get install curl
+sudo apt-get install curl -y
 curl https://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/Release.key | sudo apt-key add -
 echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/ /' | sudo tee /etc/apt/sources.list.d/hardware:razer.list
 sudo apt-get update
-sudo apt-get install openrazer-meta
+sudo apt-get install openrazer-meta -y
 
 # Razer configs for X11
 # make sure the folder exsist
@@ -123,6 +123,17 @@ Section "InputClass"
 
 EndSection
 ' > sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
-
-
-
+echo '
+#!/bin/sh
+case $1 in
+    suspend|suspend_hybrid|hibernate) # everything is fine ;;
+    resume|thaw) xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
+    ;;
+esac
+' > sudo tee /etc/pm/sleep.d/20_razer_kbd
+# I am not sure if this chmod is really required but i guess it doesn't harm
+chmod +x /etc/pm/sleep.d/20_razer_kbd
+sudo apt-get install xinput -y
+#TODO: rework the following echo because currently i am not sure how to describe whats going on here.
+echo "Enable xinput keyboard device"
+xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
