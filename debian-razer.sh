@@ -36,6 +36,9 @@
 # feel free to check if the network connection is working and upgrade the system:
 # The following steps are completly optional but strongly recommended.
 #
+# If you used the CD rom image the sources.list has to be updated
+# comment out the cdrom repos by hand or execute following command:
+sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo tee /etc/apt/sources.list
 # Check if the network connection is working. And update the system.
 su root
 apt-get update -y
