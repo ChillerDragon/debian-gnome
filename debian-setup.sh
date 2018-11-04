@@ -101,7 +101,12 @@ sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet butt
 echo "an backup of your old grub config was saved to /etc/default/grub_$time_now.BACKUP"
 
 
-
+# Installing curl and razer software
+sudo apt-get install curl
+curl https://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/Release.key | sudo apt-key add -
+echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/ /' | sudo tee /etc/apt/sources.list.d/hardware:razer.list
+sudo apt-get update
+sudo apt-get install openrazer-meta
 
 
 
