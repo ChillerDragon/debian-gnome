@@ -1,3 +1,6 @@
+# TODO: ask for a username that is used for sudo
+# TODO: use smart default ($USER)
+
 # A guide on how to install a customized debian on Razer Blade Stealth
 # It is designed for this model and windows 10
 # But i am sure it can also be helpfull on other operating systems or hardware.
@@ -137,3 +140,23 @@ sudo apt-get install xinput -y
 #TODO: rework the following echo because currently i am not sure how to describe whats going on here.
 echo "Enable xinput keyboard device"
 xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
+
+
+echo ""
+echo "Done."
+echo ""
+echo ""
+echo "PLEASE READ THE FOLLOWING TEXT!"
+echo ""
+echo "ChillerDragon's debian setup script is done."
+echo "Have a look at the output and check for errors."
+echo "The comments in the script might help troubleshooting."
+echo "If everything worked fine reboot your device."
+echo "After reboot pressing CAPSLOCK and closing the laptop lit should work."
+echo ""
+echo "The script created a backup of your grub config"
+echo "You might want to delete that file"
+echo "The created backup file is:"
+echo "/etc/default/grub_$time_now.BACKUP"
+#TODO: add some easy quick delete for the backup file
+#TODO: something like press y to delete the backup press anything else to close setup
