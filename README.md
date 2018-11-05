@@ -20,7 +20,7 @@ Or you can use the ``debian-razer.sh`` script that guides you through the same p
 Assuming you have a fresh installed debian with network connection.
 More details on how to set it up and comments on all the following commands can be found in the comments of the debian-razer.sh script.
 
-Sudo and update
+sudo and update
 ---------------
 
 If used a CD image remove cdrom repos to connect to network.
