@@ -34,7 +34,9 @@ apt-get update -y
 apt-get upgrade -y
 ```
 Then install sudo so you don't have to use the root user.
-```apt-get install sudo -y```
+```
+apt-get install sudo -y
+```
 replace $user_name with your username of the account that is not root.
 ```
 adduser $user_name sudo
