@@ -1,5 +1,16 @@
 #!/bin/bash
 function delete_backup() {
+  if [ $is_edit_grub != true ]; then
+    # skip backup deletion if no backup was made
+    return
+  fi
+
+  echo ""
+  echo "The script created a backup of your grub config"
+  echo "You might want to delete that file"
+  echo "The created backup file is:"
+  echo "/etc/default/grub_$time_now.BACKUP"
+  echo ""
   echo "Do you want to delete the grub backup? [y/N]"
   read -n 1 -p "" inp
   echo ""

@@ -1,5 +1,6 @@
 #!/bin/bash
 source lib/get_user.sh
+source lib/edit_grub.sh
 source lib/delete_backup.sh
 user_name=$USER # get overwritten by userinput
 ask_for_username
@@ -101,14 +102,7 @@ echo "alias start='xdg-open'" >> ~/.bash_aliases
 # https://wiki.archlinux.org/index.php/Razer_Blade
 # https://www.reddit.com/r/razer/comments/447vrn/razer_blade_stealth_linux/
 #
-echo "Fixing the close laptop lit bug..."
-echo "WARNING THIS IS EDITING YOUR GRUB CONFIG"
-echo "IT IGHT OVERRIDE SOME NICE DEFAULTS OR EVEN YOUR CUSTOMIZATIONS"
-echo "TODO: ask for user input y/N on this step"
-time_now=`date +%Y-%m-%d_%H-%M-%S`
-sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub
-echo "an backup of your old grub config was saved to /etc/default/grub_$time_now.BACKUP"
-
+update_grub # fixes the close laptop lit bug
 
 # Installing curl and razer software
 sudo apt-get install curl -y
@@ -159,10 +153,4 @@ echo "Have a look at the output and check for errors."
 echo "The comments in the script might help troubleshooting."
 echo "If everything worked fine reboot your device."
 echo "After reboot pressing CAPSLOCK and closing the laptop lit should work."
-echo ""
-echo "The script created a backup of your grub config"
-echo "You might want to delete that file"
-echo "The created backup file is:"
-echo "/etc/default/grub_$time_now.BACKUP"
-echo ""
 delete_backup
