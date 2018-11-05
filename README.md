@@ -66,6 +66,7 @@ https://extensions.gnome.org/
 (You also want to allow the browser some stuff)
 Or use gnome tweak tool and click:
 extensions->Get more extensions
+
 Then goto dash to dock settings and set the menu bar where you want
 ```
 gnome-tweak-tool
@@ -74,7 +75,7 @@ gnome-tweak-tool
 start path (alias)
 ------------------
 This alias allows to launch the files browser from commandline
-in the windows style by typing 'start <path>'
+in the windows style by typing 'start (path)'
 ```
 echo "alias start='xdg-open'" >> ~/.bash_aliases
 ```
