@@ -1,5 +1,6 @@
 #!/bin/bash
 source lib/get_user.sh
+source lib/delete_backup.sh
 user_name=$USER # get overwritten by userinput
 ask_for_username
 
@@ -163,5 +164,5 @@ echo "The script created a backup of your grub config"
 echo "You might want to delete that file"
 echo "The created backup file is:"
 echo "/etc/default/grub_$time_now.BACKUP"
-#TODO: add some easy quick delete for the backup file
-#TODO: something like press y to delete the backup press anything else to close setup
+echo ""
+delete_backup
