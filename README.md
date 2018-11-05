@@ -37,10 +37,10 @@ Then install sudo so you don't have to use the root user.
 ```
 apt-get install sudo -y
 ```
-replace $user_name with your username of the account that is not root.
+replace chiller with your username of the account that is not root.
 ```
-adduser $user_name sudo
-su $user_name
+adduser chiller sudo
+su chiller
 sudo test
 ```
 flat remix look
