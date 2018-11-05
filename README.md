@@ -2,7 +2,7 @@
 A guide for noobs by a noob to install debian and set it up the chiller way.
 
 It is a mix between a script and a documentation.
-So make sure to read the whole setup-razer.sh (especially the comments)
+So make sure to read the whole setup-razer.sh (especially the comments) before executing it, or just follow this readme instead and don't touch the script at all.
 And then if you have a fresh debian system running you can execute it to finish the setup.
 
 The script is designed for razer blade stealth.
@@ -24,7 +24,9 @@ Sudo and update
 ---------------
 
 If used a CD image remove cdrom repos to connect to network.
-```sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo tee /etc/apt/sources.list```
+```
+sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo tee /etc/apt/sources.list
+```
 Check if the network connection is working. And update the system.
 ```
 su root
