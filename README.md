@@ -83,8 +83,9 @@ echo "alias start='xdg-open'" >> ~/.bash_aliases
 razer stealth related bugs
 --------------------------
 
-Let's fix some crucial bugs related to the razer blade stealth
+Let's fix some crucial bugs related to the razer blade stealth.
 They might occur on other razer laptops aswell.
+
 Add the ``quiet button.lid_init_state=open`` kernel flag to your grub config by hand.
 Or execute this command:
 ```
