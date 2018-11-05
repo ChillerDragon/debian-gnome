@@ -1,5 +1,7 @@
-# TODO: ask for a username that is used for sudo
-# TODO: use smart default ($USER)
+#!/bin/bash
+source lib/get_user.sh
+user_name=$USER # get overwritten by userinput
+ask_for_username
 
 # A guide on how to install a customized debian on Razer Blade Stealth
 # It is designed for this model and windows 10
@@ -45,10 +47,10 @@ apt-get update -y
 apt-get upgrade -y
 # Then install sudo so you don't have to use the root user
 apt-get install sudo -y
-# replace chiller with your username of the account that is not root
-adduser chiller sudo
+# replace $user_name with your username of the account that is not root
+adduser $user_name sudo
 # switch to that account
-su chiller
+su $user_name
 # test if sudo is working
 sudo test
 #
