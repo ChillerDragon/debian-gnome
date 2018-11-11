@@ -6,6 +6,7 @@ source lib/edit_grub.sh
 source lib/delete_backup.sh
 source lib/check_razer.sh
 source lib/chiller_cfg.sh
+source lib/git_repos.sh
 
 user_name=$USER # overwritten by get_user.sh
 is_razer=false  # overwritten by check_razer.sh
@@ -74,8 +75,10 @@ adduser $user_name sudo
 su $user_name
 # test if sudo is working
 sudo test
-#
-#
+
+echo "Installing compiler and dev libs..."
+sudo apt install build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
+
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
 # Skip this step if you like the default look or dislike this design https://github.com/daniruiz/Flat-Remix-GTK
 echo "installing flat-remix-gtk theme by daniruiz..."
@@ -163,6 +166,8 @@ then
   xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
 fi # end is_razer true branch
 
+git_repos
+
 echo ""
 echo "Done."
 echo ""
@@ -173,5 +178,5 @@ echo "ChillerDragon's debian setup script is done."
 echo "Have a look at the output and check for errors."
 echo "The comments in the script might help troubleshooting."
 echo "If everything worked fine reboot your device."
-echo "After reboot pressing CAPSLOCK and closing the laptop lit should work."
+echo "After reboot pressing CAPSLOCK and closing the laptop lit should work (on razer)."
 delete_backup
