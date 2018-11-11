@@ -1,9 +1,25 @@
 #!/bin/bash
+# dependencys if run as script
+# skip to 'START READING HERE' section if you copy paste manually
 source lib/get_user.sh
 source lib/edit_grub.sh
 source lib/delete_backup.sh
-user_name=$USER # get overwritten by userinput
+source lib/check_razer.sh
+user_name=$USER # overwritten by get_user.sh
+is_razer=false  # overwritten by check_razer.sh
 ask_for_username
+ask_for_razer
+
+##############################################
+#                                            #
+#  START READING HERE IF YOU DO IT MANUALLY  #
+#                                            #
+##############################################
+# Doing it manually disclaimer:
+# This can also run as script so don't get confused by function calls
+# Or by if branches. Make sure to read and understand what is going on and don't copy paste blind
+# If you want to lay back and be lazy just execute the script.
+# -- manually disclaimer end --
 
 # A guide on how to install a customized debian on Razer Blade Stealth
 # It is designed for this model and windows 10
@@ -91,56 +107,58 @@ gnome-tweak-tool
 echo "create start alias for file system..."
 echo "alias start='xdg-open'" >> ~/.bash_aliases
 
-# Let's fix some crucial bugs related to the razer blade stealth
-# They might occur on other razer laptops aswell.
-# They might not occur on your hardware.
-# Bugs i encountered and fixed:
-# - When closing the laptop lit it went randomly to inactive after opening it agian
-# - When releasing CAPSLOCK key everything crashed and i had to hardreset my laptop
+if [ $is_razer == true ]
+then
+  # Let's fix some crucial bugs related to the razer blade stealth
+  # They might occur on other razer laptops aswell.
+  # They might not occur on your hardware.
+  # Bugs i encountered and fixed:
+  # - When closing the laptop lit it went randomly to inactive after opening it agian
+  # - When releasing CAPSLOCK key everything crashed and i had to hardreset my laptop
 
-# Super usefull ressources can be found at:
-# https://wiki.archlinux.org/index.php/Razer_Blade
-# https://www.reddit.com/r/razer/comments/447vrn/razer_blade_stealth_linux/
-#
-update_grub # fixes the close laptop lit bug
+  # Super usefull ressources can be found at:
+  # https://wiki.archlinux.org/index.php/Razer_Blade
+  # https://www.reddit.com/r/razer/comments/447vrn/razer_blade_stealth_linux/
+  #
+  update_grub # fixes the close laptop lit bug
 
-# Installing curl and razer software
-sudo apt-get install curl -y
-curl https://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/Release.key | sudo apt-key add -
-echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/ /' | sudo tee /etc/apt/sources.list.d/hardware:razer.list
-sudo apt-get update
-sudo apt-get install openrazer-meta -y
+  # Installing curl and razer software
+  sudo apt-get install curl -y
+  curl https://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/Release.key | sudo apt-key add -
+  echo 'deb http://download.opensuse.org/repositories/hardware:/razer/Debian_9.0/ /' | sudo tee /etc/apt/sources.list.d/hardware:razer.list
+  sudo apt-get update
+  sudo apt-get install openrazer-meta -y
 
-# Razer configs for X11
-# make sure the folder exsist
-# /usr/share/X11/xorg.conf.d
-# if not it might be the wrong place
-# try to execute a find command to find it
-# sudo find / -name "*xorg.conf*"
-echo "Add some razer specific config..."
-echo '
-Section "InputClass"
+  # Razer configs for X11
+  # make sure the folder exsist
+  # /usr/share/X11/xorg.conf.d
+  # if not it might be the wrong place
+  # try to execute a find command to find it
+  # sudo find / -name "*xorg.conf*"
+  echo "Add some razer specific config..."
+  echo '
+  Section "InputClass"
 
-    Identifier "Disable built-in keyboard"
-    MatchIsKeyboard "on" MatchProduct "AT Raw Set 2 keyboard" Option "Ignore" "true"
+      Identifier "Disable built-in keyboard"
+      MatchIsKeyboard "on" MatchProduct "AT Raw Set 2 keyboard" Option "Ignore" "true"
 
-EndSection
-' > sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
-echo '
-#!/bin/sh
-case $1 in
-    suspend|suspend_hybrid|hibernate) # everything is fine ;;
-    resume|thaw) xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
-    ;;
-esac
-' > sudo tee /etc/pm/sleep.d/20_razer_kbd
-# I am not sure if this chmod is really required but i guess it doesn't harm
-chmod +x /etc/pm/sleep.d/20_razer_kbd
-sudo apt-get install xinput -y
-#TODO: rework the following echo because currently i am not sure how to describe whats going on here.
-echo "Enable xinput keyboard device"
-xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
-
+  EndSection
+  ' > sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
+  echo '
+  #!/bin/sh
+  case $1 in
+      suspend|suspend_hybrid|hibernate) # everything is fine ;;
+      resume|thaw) xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
+      ;;
+  esac
+  ' > sudo tee /etc/pm/sleep.d/20_razer_kbd
+  # I am not sure if this chmod is really required but i guess it doesn't harm
+  chmod +x /etc/pm/sleep.d/20_razer_kbd
+  sudo apt-get install xinput -y
+  #TODO: rework the following echo because currently i am not sure how to describe whats going on here.
+  echo "Enable xinput keyboard device"
+  xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
+fi # end is_razer true branch
 
 echo ""
 echo "Done."
