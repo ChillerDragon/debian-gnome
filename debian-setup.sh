@@ -5,10 +5,13 @@ source lib/get_user.sh
 source lib/edit_grub.sh
 source lib/delete_backup.sh
 source lib/check_razer.sh
+source lib/chiller_cfg.sh
+
 user_name=$USER # overwritten by get_user.sh
 is_razer=false  # overwritten by check_razer.sh
 ask_for_username
 ask_for_razer
+chiller_config
 
 ##############################################
 #                                            #
