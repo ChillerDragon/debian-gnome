@@ -19,7 +19,7 @@ Or you can use the ``debian-razer.sh`` script that guides you through the same p
 
 If you are ChillerDragon or want exactly his private setup then execute:
 ```
-./debian-razer.sh -y
+yes | ./debian-razer.sh
 ```
 to go full chiller config (not recommended if you are not ChillerDragon).
 
