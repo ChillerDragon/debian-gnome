@@ -77,7 +77,7 @@ su $user_name
 sudo test
 
 echo "Installing compiler and dev libs..."
-sudo apt install build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
+sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
 
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
 # Skip this step if you like the default look or dislike this design https://github.com/daniruiz/Flat-Remix-GTK
