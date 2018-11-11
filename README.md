@@ -2,12 +2,13 @@
 A guide for noobs by a noob to install debian and set it up the chiller way.
 
 It is a mix between a script and a documentation.
-So make sure to read the whole setup-razer.sh (especially the comments) before executing it, or just follow this readme instead and don't touch the script at all.
-And then if you have a fresh debian system running you can execute it to finish the setup.
+So feel free to read the script and its comments and copy paste step by step.
+Or execute it and decide what setup you want ( the script will ask you before it does something ).
 
-The script is designed for razer blade stealth.
+The script is fully supporting razer blade stealth ( other hardware is probably fine aswell but untested ).
 And it adds some personal customizations.
 So make sure you like what i use or make changes in the debian-razer.sh before executing it.
+Or simply press n on the special parts.
 
 ![Demo](img/preview.png)
 
@@ -15,6 +16,12 @@ So make sure you like what i use or make changes in the debian-razer.sh before e
 
 You can either follow this readme and copy paste all the commands in your terminal.
 Or you can use the ``debian-razer.sh`` script that guides you through the same process.
+
+If you are ChillerDragon or want exactly his private setup then execute:
+```
+yes | ./debian-razer.sh
+```
+to go full chiller config (not recommended if you are not ChillerDragon).
 
 
 Assuming you have a fresh installed debian with network connection.
