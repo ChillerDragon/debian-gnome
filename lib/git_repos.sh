@@ -19,14 +19,14 @@ function chiller_repos() {
   mkdir -p git
   cd git
   git clone https://github.com/ddnet/ddnet
-  git clone https://github.com/ChillerDragon/DDNetPP
+  git clone https://github.com/DDNetPP/DDNetPP
   git clone https://github.com/TwChilli/chilli-server
   git clone https://github.com/teeworlds/teeworlds
   git clone https://github.com/matricks/bam
   cd bam
   ./make_unix.sh
 
-  # TODO: https://github.com/ChillerDragon/GitSettings
+  # TODO: https://github.com/ChillerTW/GitSettings
   # clone and set it up
   # i think the problem it that the ~/.teeworlds folder doesn't exsist yet
   # it only gets created on launching tw
