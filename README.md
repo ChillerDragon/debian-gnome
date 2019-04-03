@@ -50,6 +50,11 @@ adduser chiller sudo
 su chiller
 sudo test
 ```
+
+Then use sudo to install stuff
+```
+sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
+```
 flat remix look
 ---------------
 ```
