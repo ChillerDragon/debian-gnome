@@ -27,8 +27,8 @@ to go full chiller config (not recommended if you are not ChillerDragon).
 Assuming you have a fresh installed debian with network connection.
 More details on how to set it up and comments on all the following commands can be found in the comments of the debian-razer.sh script.
 
-sudo and update
----------------
+sudo and software
+-----------------
 
 If used a CD image remove cdrom repos to connect to network.
 ```
@@ -54,6 +54,12 @@ sudo test
 Then use sudo to install stuff
 ```
 sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
+```
+
+Download the discord.deb from their website and then do
+```
+sudo dpkgi -i path/to/downloadeded_discord.deb
+sudo apt install -f
 ```
 Look and feel
 ---------------
