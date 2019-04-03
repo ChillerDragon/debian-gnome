@@ -12,6 +12,7 @@ function chiller_config() {
     echo "Skipping chiller configs..."
     return
   fi
+  sudo apt install git
   cd /tmp
   rm -rf chiller-configs
   git clone https://github.com/ChillerDragon/chiller-configs
