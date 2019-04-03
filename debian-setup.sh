@@ -12,7 +12,6 @@ user_name=$USER # overwritten by get_user.sh
 is_razer=false  # overwritten by check_razer.sh
 ask_for_username
 ask_for_razer
-chiller_config
 
 ##############################################
 #                                            #
@@ -78,6 +77,7 @@ sudo test
 
 echo "Installing compiler and dev libs..."
 sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
+chiller_config
 
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
 # Skip this step if you like the default look or dislike this design https://github.com/daniruiz/Flat-Remix-GTK
