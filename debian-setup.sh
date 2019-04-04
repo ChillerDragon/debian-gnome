@@ -117,7 +117,11 @@ fi
 # or execute:
 echo "Install dash to dock extension at extensions->Get more extensions"
 echo "Then goto dash to dock settings and set the menu bar where you want"
-gnome-tweak-tool
+
+# commands to start gnome tweak tool
+# commented out in script becuase it is annoying
+# gnome-tweak-tool # debian 9
+# gnome-tweaks     # debian 10
 
 # activate desktop icons
 # on debian 10 you need a gnome extension called "Desktop Icons"
