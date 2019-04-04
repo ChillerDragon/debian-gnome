@@ -91,21 +91,24 @@ chiller_config
 
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
 # Skip this step if you like the default look or dislike this design https://github.com/daniruiz/Flat-Remix-GTK
-echo "installing flat-remix-gtk theme by daniruiz..."
-cd /tmp && rm -rf flat-remix-gtk &&
-git clone https://github.com/daniruiz/flat-remix-gtk &&
-mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
-gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
-echo "installing flat-remix icon theme by daniruiz..."
-cd /tmp && rm -rf flat-remix &&
-git clone https://github.com/daniruiz/flat-remix &&
-mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
-gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
+if [ ! -d ~/.icons/Flat-Remix-Blue ] # if guard for script not installing it twice
+then
+  echo "installing flat-remix-gtk theme by daniruiz..."
+  cd /tmp && rm -rf flat-remix-gtk &&
+  git clone https://github.com/daniruiz/flat-remix-gtk &&
+  mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
+  gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
+fi
 
-# I didn't find a command yet to change the terminal theme so it has to be done manually now.
-# Open a terminal ( windowskey and then type terminal ):
-# In the top menu bar click on Edit->Preferences->General->Theme variant: Dark
-#
+if [ ! -d ~/.themes/Flat-Remix-GTK-Dark ]
+then
+  echo "installing flat-remix icon theme by daniruiz..."
+  cd /tmp && rm -rf flat-remix &&
+  git clone https://github.com/daniruiz/flat-remix &&
+  mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
+  gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
+fi
+
 # Now fix the dash menu and add a nice bottom dock.
 # Install dash to dock extension either in browser at:
 # https://extensions.gnome.org/
