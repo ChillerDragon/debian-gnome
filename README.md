@@ -114,6 +114,7 @@ Add the ``quiet button.lid_init_state=open`` kernel flag to your grub config by 
 Or execute this command:
 ```
 sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub
+sudo update-grub
 ```
 
 
