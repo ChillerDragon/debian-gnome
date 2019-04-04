@@ -60,22 +60,30 @@ ask_for_razer
 # The following steps are completly optional but recommended.
 
 # Check if the network connection is working. And update the system.
-su root
+read -r -d '' cmd << EOM
+  apt-get update -y
+  apt-get upgrade -y
+  # Then install sudo so you don't have to use the root user
+  apt-get install sudo -y
+  # replace $user_name with your username of the account that is not root
+  /usr/sbin/adduser $user_name sudo
+  exit;
+EOM
+
+res=1
+while [ "$res" == "1" ]
+do
+	echo "please enter admin password to install sudo :)"
+	su -c "$cmd";
+	res=$?
+done
+
+# test if sudo is working
+sudo test
 
 # If you used the CD rom image the sources.list has to be updated
 # comment out the cdrom repos by hand or execute following command:
-sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | tee /etc/apt/sources.list
-
-apt-get update -y
-apt-get upgrade -y
-# Then install sudo so you don't have to use the root user
-apt-get install sudo -y
-# replace $user_name with your username of the account that is not root
-adduser $user_name sudo
-# switch to that account
-su $user_name
-# test if sudo is working
-sudo test
+sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo tee /etc/apt/sources.list
 
 echo "Installing compiler and dev libs..."
 sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
