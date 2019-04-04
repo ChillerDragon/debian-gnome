@@ -18,9 +18,9 @@ function chiller_repos() {
   cd ~/Desktop
   mkdir -p git
   cd git
-  git clone https://github.com/ddnet/ddnet
+  git clone --recursive https://github.com/ddnet/ddnet
   git clone https://github.com/DDNetPP/DDNetPP
-  git clone https://github.com/teeworlds/teeworlds
+  git clone --recursive https://github.com/teeworlds/teeworlds
   git clone https://github.com/matricks/bam
   cd bam
   ./make_unix.sh
