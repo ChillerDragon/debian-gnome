@@ -16,10 +16,10 @@ function update_grub() {
     echo "Skipping grub edit..."
     echo "I highly recommend to edit the grub config manually then:"
     echo "add the 'button.lid_init_state=open' kernel flag to your grub cfg"
-    is_edit_grub=false
+    is_edit_grub=0
     return
   fi
-  is_edit_grub=true
+  is_edit_grub=1
 
   time_now=`date +%Y-%m-%d_%H-%M-%S`
   sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub

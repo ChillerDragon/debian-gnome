@@ -1,6 +1,6 @@
 #!/bin/bash
 function delete_backup() {
-  if [ $is_edit_grub != true ]; then
+  if [ "$is_edit_grub" != "1" ]; then
     # skip backup deletion if no backup was made
     return
   fi
