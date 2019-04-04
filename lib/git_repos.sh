@@ -20,7 +20,6 @@ function chiller_repos() {
   cd git
   git clone https://github.com/ddnet/ddnet
   git clone https://github.com/DDNetPP/DDNetPP
-  git clone https://github.com/TwChilli/chilli-server
   git clone https://github.com/teeworlds/teeworlds
   git clone https://github.com/matricks/bam
   cd bam
