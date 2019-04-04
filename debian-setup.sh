@@ -109,14 +109,18 @@ echo "Then goto dash to dock settings and set the menu bar where you want"
 gnome-tweak-tool
 
 # activate desktop icons
+# on debian 10 you need a gnome extension called "Desktop Icons"
 gsettings set org.gnome.desktop.background show-desktop-icons true
 
 # This alias allows to launch the files browser from commandline
 # in the windows style by typing 'start <path>'
 # sadly the mac style 'open <path>' is not possible
 # because open is a linux command already ._.
-echo "create start alias for file system..."
-echo "alias start='xdg-open'" >> ~/.bash_aliases
+if ! grep -q "alias start='" ~/.bash_aliases # only create it once and dont override others with the same name
+then
+  echo "alias start='xdg-open'" >> ~/.bash_aliases
+  echo "create start alias for file system..."
+fi
 
 if [ $is_razer == true ]
 then
