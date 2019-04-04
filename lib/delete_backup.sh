@@ -28,6 +28,6 @@ function delete_backup() {
   echo "deleting grub cfg backup ($grub_backup)..."
   echo "can be restored from /tmp until system reboot."
   # soft delete c:
-  mv $grub_backup /tmp
+  sudo mv $grub_backup /tmp
 }
 

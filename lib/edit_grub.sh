@@ -22,6 +22,6 @@ function update_grub() {
   is_edit_grub=1
 
   time_now=`date +%Y-%m-%d_%H-%M-%S`
-  sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub
+  sudo sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub
   echo "an backup of your old grub config was saved to /etc/default/grub_$time_now.BACKUP"
 }
