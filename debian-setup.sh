@@ -95,12 +95,12 @@ echo "installing flat-remix-gtk theme by daniruiz..."
 cd /tmp && rm -rf flat-remix-gtk &&
 git clone https://github.com/daniruiz/flat-remix-gtk &&
 mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
-gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK"
+gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
 echo "installing flat-remix icon theme by daniruiz..."
 cd /tmp && rm -rf flat-remix &&
 git clone https://github.com/daniruiz/flat-remix &&
 mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
-gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"
+gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 
 # I didn't find a command yet to change the terminal theme so it has to be done manually now.
 # Open a terminal ( windowskey and then type terminal ):
