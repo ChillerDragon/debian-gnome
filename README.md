@@ -1,4 +1,9 @@
 # debian-setup
+Tested on:
+- razer blade stealth (2018) ( debian 9 )
+- razer blade 15 (2019) ( debian 10 )
+
+
 A guide for noobs by a noob to install debian and set it up the chiller way.
 
 It is a mix between a script and a documentation.
@@ -104,8 +109,8 @@ in the windows style by typing 'start (path)'
 echo "alias start='xdg-open'" >> ~/.bash_aliases
 ```
 
-razer stealth related bugs
---------------------------
+razer related bugs
+------------------
 
 Let's fix some crucial bugs related to the razer blade stealth.
 They might occur on other razer laptops aswell.
