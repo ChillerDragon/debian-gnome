@@ -19,7 +19,7 @@ function chiller_repos() {
   mkdir -p git
   cd git
   git clone --recursive https://github.com/ddnet/ddnet
-  git clone https://github.com/DDNetPP/DDNetPP
+  git clone --recursive https://github.com/DDNetPP/DDNetPP
   git clone --recursive https://github.com/teeworlds/teeworlds
   git clone https://github.com/matricks/bam
   cd bam
