@@ -20,7 +20,7 @@ Or simply press n on the special parts.
 # How to use?
 
 You can either follow this readme and copy paste all the commands in your terminal.
-Or you can use the ``debian-razer.sh`` script that guides you through the same process.
+Or you can use the ``debian-setup.sh`` script that guides you through the same process.
 
 If you are ChillerDragon or want exactly his private setup then execute:
 ```
