@@ -30,7 +30,7 @@ to go full chiller config (not recommended if you are not ChillerDragon).
 
 
 Assuming you have a fresh installed debian with network connection.
-More details on how to set it up and comments on all the following commands can be found in the comments of the debian-razer.sh script.
+More details on how to set it up and comments on all the following commands can be found in the comments of the debian-setup.sh script.
 
 sudo and software
 -----------------
@@ -164,4 +164,4 @@ sudo apt-get install xinput -y
 xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
 ```
 
-If you encounter any problems the debian-razer.sh script has a lot of comments.
+If you encounter any problems the debian-setup.sh script has a lot of comments.
