@@ -125,6 +125,9 @@ fi
 # Most important for the look! The background:
 gsettings set org.gnome.desktop.background picture-uri 'file:////usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml'
 
+# Invert touchpad scroll direction
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
 # Now fix the dash menu and add a nice bottom dock.
 # Install dash to dock extension either in browser at:
 # https://extensions.gnome.org/
