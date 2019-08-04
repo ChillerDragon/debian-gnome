@@ -3,7 +3,6 @@
 # skip to 'START READING HERE' section if you copy paste manually
 source lib/get_user.sh
 source lib/edit_grub.sh
-source lib/delete_backup.sh
 source lib/check_razer.sh
 source lib/chiller_cfg.sh
 source lib/git_repos.sh
@@ -59,6 +58,20 @@ ask_for_razer
 # feel free to check if the network connection is working and upgrade the system:
 # The following steps are completly optional but recommended.
 
+# Add sbin to path
+if ! echo $PATH | grep -q sbin
+then
+	if grep -q "ChillerDragon (debian-setup.sh)" ~/.bashrc
+	then
+		echo "warning sbin not in path found..."
+	else
+		echo "adding sbin to path..."
+		echo "" >> ~/.bashrc
+		echo "PATH=\$PATH:/usr/sbin # ChillerDragon (debian-setup.sh)" >> ~/.bashrc
+		source ~/.bashrc
+	fi
+fi
+
 # Check if the network connection is working. And update the system.
 read -r -d '' cmd << EOM
   apt-get update -y
@@ -97,7 +110,7 @@ then
   cd /tmp && rm -rf flat-remix-gtk &&
   git clone https://github.com/daniruiz/flat-remix-gtk &&
   mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
-  gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
+  gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue-Dark"
 fi
 
 if [ ! -d ~/.themes/Flat-Remix-GTK-Dark ]
