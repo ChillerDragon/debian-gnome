@@ -12,7 +12,7 @@ Or execute it and decide what setup you want ( the script will ask you before it
 
 The script is fully supporting razer blade stealth ( other hardware is probably fine aswell but untested ).
 And it adds some personal customizations.
-So make sure you like what i use or make changes in the debian-razer.sh before executing it.
+So make sure you like what i use or make changes in the debian-setup.sh before executing it.
 Or simply press n on the special parts.
 
 ![Demo](img/preview.png)
@@ -24,7 +24,7 @@ Or you can use the ``debian-razer.sh`` script that guides you through the same p
 
 If you are ChillerDragon or want exactly his private setup then execute:
 ```
-yes | ./debian-razer.sh
+yes | ./debian-setup.sh
 ```
 to go full chiller config (not recommended if you are not ChillerDragon).
 
