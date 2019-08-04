@@ -192,7 +192,7 @@ then
       MatchIsKeyboard "on" MatchProduct "AT Raw Set 2 keyboard" Option "Ignore" "true"
 
   EndSection
-  ' > sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
+  ' | sudo tee /usr/share/X11/xorg.conf.d/20-razer-kbd.conf
   echo '
   #!/bin/sh
   case $1 in
@@ -200,9 +200,9 @@ then
       resume|thaw) xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
       ;;
   esac
-  ' > sudo tee /etc/pm/sleep.d/20_razer_kbd
+  ' | sudo tee /etc/pm/sleep.d/20_razer_kbd
   # I am not sure if this chmod is really required but i guess it doesn't harm
-  chmod +x /etc/pm/sleep.d/20_razer_kbd
+  sudo chmod +x /etc/pm/sleep.d/20_razer_kbd
   sudo apt-get install xinput -y
   #TODO: rework the following echo because currently i am not sure how to describe whats going on here.
   echo "Enable xinput keyboard device"
