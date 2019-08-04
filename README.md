@@ -102,6 +102,11 @@ Then goto dash to dock settings and set the menu bar where you want
 gnome-tweak-tool
 ```
 
+Desktop icons
+-------------
+
+get this gnome extension https://extensions.gnome.org/extension/1465/desktop-icons/
+
 start path (alias)
 ------------------
 This alias allows to launch the files browser from commandline
