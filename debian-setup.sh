@@ -122,6 +122,9 @@ then
   gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 fi
 
+# Most important for the look! The background:
+gsettings set org.gnome.desktop.background picture-uri 'file:////usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml'
+
 # Now fix the dash menu and add a nice bottom dock.
 # Install dash to dock extension either in browser at:
 # https://extensions.gnome.org/
