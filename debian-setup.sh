@@ -211,6 +211,9 @@ fi # end is_razer true branch
 
 git_repos
 
+# installing usefull tools
+sudo apt install htop nload
+
 echo ""
 echo "Done."
 echo ""
