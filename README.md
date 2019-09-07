@@ -2,6 +2,7 @@
 Tested on:
 - razer blade stealth (2018) ( debian 9, debian 10 )
 - razer blade 15 (2019) ( debian 10 )
+- some old msi laptop ( debian 9, debian 10)
 
 
 A guide for noobs by a noob to install debian and set it up the chiller way.
