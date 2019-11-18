@@ -2,7 +2,7 @@
 
 function ask_for_razer() {
   echo "Is this a razer laptop? [y/N]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "y" ]; then
     is_razer=true

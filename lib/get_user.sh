@@ -5,9 +5,9 @@ user_name=$USER
 function ask_for_custom_user() {
   echo "Enter exsisting username"
   printf "> "
-  read -p "" name
+  read -rp "" name
   echo "Do you want to use '$name' for setup? [Y/n]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "n" ]; then
     ask_for_custom_user
@@ -24,7 +24,7 @@ function ask_for_username() {
   echo "For the setup a specific user is used."
   echo "It should exsist and it gets sudo access."
   echo "We found the user '$user_name' do you want to use it? [Y/n]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "n" ]; then
     ask_for_custom_user

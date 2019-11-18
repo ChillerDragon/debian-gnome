@@ -6,7 +6,7 @@ function update_grub() {
   echo "WARNING THIS IS EDITING YOUR GRUB CONFIG"
   echo "IT MIGHT OVERRIDE SOME NICE DEFAULTS OR EVEN YOUR CUSTOMIZATIONS"
   echo "Do you want to edit the grub config? [y/N]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "y" ]; then
     test
@@ -21,7 +21,7 @@ function update_grub() {
   fi
   is_edit_grub=1
 
-  time_now=`date +%Y-%m-%d_%H-%M-%S`
+  time_now=$(date +%Y-%m-%d_%H-%M-%S)
   sudo sed -i_$time_now.BACKUP -e '/^GRUB_CMDLINE_LINUX_DEFAULT=".*/ s/".*"/"quiet button.lid_init_state=open"/' /etc/default/grub
   sudo update-grub
   echo "an backup of your old grub config was saved to /etc/default/grub_$time_now.BACKUP"
@@ -40,7 +40,7 @@ function delete_backup() {
   echo "/etc/default/grub_$time_now.BACKUP"
   echo ""
   echo "Do you want to delete the grub backup? [y/N]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "y" ]; then
     test
@@ -56,5 +56,5 @@ function delete_backup() {
   echo "deleting grub cfg backup ($grub_backup)..."
   echo "can be restored from /tmp until system reboot."
   # soft delete c:
-  sudo mv $grub_backup /tmp
+  sudo mv "$grub_backup" /tmp
 }

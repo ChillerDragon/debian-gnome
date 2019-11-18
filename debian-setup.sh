@@ -1,6 +1,7 @@
 #!/bin/bash
 # dependencys if run as script
 # skip to 'START READING HERE' section if you copy paste manually
+source lib/save_cd.sh
 source lib/get_user.sh
 source lib/edit_grub.sh
 source lib/check_razer.sh

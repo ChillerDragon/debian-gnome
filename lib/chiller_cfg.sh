@@ -2,7 +2,7 @@
 
 function chiller_config() {
   echo "load chiller configs from github (vim etc)? [y/N]"
-  read -n 1 -p "" inp
+  read -rn 1 -p "" inp
   echo ""
   if [ "$inp" == "y" ]; then
     echo "Loading chiller configs from github..."
@@ -12,10 +12,10 @@ function chiller_config() {
     echo "Skipping chiller configs..."
     return
   fi
-  cd /tmp
+  save_cd /tmp
   rm -rf chiller-configs
   git clone https://github.com/ChillerDragon/chiller-configs
-  cd chiller-configs
+  save_cd chiller-configs
   chmod +x setup.sh
   ./setup.sh
 }
