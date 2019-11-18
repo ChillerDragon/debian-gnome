@@ -83,16 +83,21 @@ read -r -d '' cmd << EOM
   exit;
 EOM
 
-res=1
-while [ "$res" == "1" ]
-do
-	echo "please enter admin password to install sudo :)"
-	su -c "$cmd";
-	res=$?
-done
-
-# test if sudo is working
-sudo test
+if ! [ -x "$(command -v sudo)" ]
+then
+    echo "warning sudo is not installed."
+    res=1
+    while [ "$res" == "1" ]
+    do
+        echo "please enter admin password to install sudo :)"
+        su -c "$cmd";
+        res=$?
+    done
+    # test if sudo is working
+    sudo test
+else
+    echo "sudo is already installed."
+fi
 
 # If you used the CD rom image the sources.list has to be updated
 # comment out the cdrom repos by hand or execute following command:
@@ -224,5 +229,8 @@ echo "ChillerDragon's debian setup script is done."
 echo "Have a look at the output and check for errors."
 echo "The comments in the script might help troubleshooting."
 echo "If everything worked fine reboot your device."
-echo "After reboot pressing CAPSLOCK and closing the laptop lit should work (on razer)."
+if [ $is_razer == true ]
+then
+    echo "After reboot pressing CAPSLOCK and closing the laptop lit should work (on razer)."
+fi
 delete_backup
