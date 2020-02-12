@@ -93,7 +93,7 @@ dash to dock
 
 Now fix the dash menu and add a nice bottom dock.
 Install dash to dock extension either in browser at:
-https://extensions.gnome.org/
+https://extensions.gnome.org/extension/307/dash-to-dock/
 (You also want to allow the browser some stuff)
 Or use gnome tweak tool and click:
 extensions->Get more extensions
