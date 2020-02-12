@@ -145,4 +145,3 @@ function install_chillertools() {
     install_um
 }
 
-install_chillertools

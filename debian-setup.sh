@@ -76,13 +76,20 @@ fi
 
 # Check if the network connection is working. And update the system.
 read -r -d '' cmd << EOM
-  apt-get update -y
-  apt-get upgrade -y
-  # Then install sudo so you don't have to use the root user
-  apt-get install sudo -y
-  # replace $user_name with your username of the account that is not root
-  /usr/sbin/adduser $user_name sudo
-  exit;
+    apt-get update -y
+    apt-get upgrade -y
+    # Then install sudo so you don't have to use the root user
+    apt-get install sudo -y
+    # replace $user_name with your username of the account that is not root
+    /usr/sbin/adduser $user_name sudo
+    if grep -q "$user_name" /etc/sudoers
+    then
+        echo "[*] user '$user_name' in sudoers already"
+    else
+        echo "[*] adding '$user_name' to /etc/sudoers"
+        echo "$user_name ALL=(ALL)   ALL" >> /etc/sudoers
+    fi
+    exit;
 EOM
 
 if ! [ -x "$(command -v sudo)" ]
