@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function chiller_config() {
+function chiller_dotfiles() {
   echo "load chiller configs from github (vim etc)? [y/N]"
   read -rn 1 -p "" inp
   echo ""
@@ -13,9 +13,9 @@ function chiller_config() {
     return
   fi
   save_cd /tmp
-  rm -rf chiller-configs
-  git clone https://github.com/ChillerDragon/chiller-configs
-  save_cd chiller-configs
+  rm -rf dotfiles
+  git clone https://github.com/ChillerDragon/dotfiles
+  save_cd dotfiles
   chmod +x setup.sh
   ./setup.sh
 }
