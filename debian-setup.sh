@@ -7,6 +7,7 @@ source lib/edit_grub.sh
 source lib/check_razer.sh
 source lib/chiller_cfg.sh
 source lib/git_repos.sh
+source lib/chiller_tools.sh
 
 user_name=$USER # overwritten by get_user.sh
 is_razer=false  # overwritten by check_razer.sh
@@ -119,7 +120,7 @@ then
   gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue-Dark"
 fi
 
-if [ ! -d ~/.themes/Flat-Remix-GTK-Dark ]
+if [ ! -d ~/.themes/Flat-Remix-GTK-Blue ]
 then
   echo "installing flat-remix icon theme by daniruiz..."
   cd /tmp && rm -rf flat-remix &&
@@ -216,6 +217,7 @@ then
 fi # end is_razer true branch
 
 git_repos
+install_chillertools
 
 # installing usefull tools
 sudo apt install htop nload
