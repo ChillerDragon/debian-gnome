@@ -62,13 +62,21 @@ Then use sudo to install stuff
 sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
 ```
 
-Download the discord.deb from their website and then do
+**Installing discord**
 ```
 sudo apt install libgconf-2-4 libappindicator1 libc++1
 wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 sudo dpkg -i /tmp/discord.deb
 sudo apt install -f
 ```
+
+**Installing vscode**
+```
+wget -O /tmp/vscode.deb https://code.visualstudio.com/docs/?dv=linux64_deb
+sudo dpkg -i /tmp/vscode.deb
+sudo apt install -f
+```
+
 Look and feel
 ---------------
 Flat remix icon and themes (make sure to select them in the gnome tweak tool)
