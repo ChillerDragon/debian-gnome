@@ -33,6 +33,23 @@ to go full chiller config (not recommended if you are not ChillerDragon).
 Assuming you have a fresh installed debian with network connection.
 More details on how to set it up and comments on all the following commands can be found in the comments of the debian-setup.sh script.
 
+# GPU drivers
+
+Sometimes it can get very tricky to even login into the graphical system because the GPU drivers are missing.
+When you have like 1 fps in the login screen it is likley that you just have to install some drivers.
+Press ``ctrl+alt+f2`` or ``ctrl+alt+f3`` to login into a non graphical terminal. There login as root and download the graphics script:
+
+```
+# latest version from github (long to type tho)
+wget -O /tmp/gpu.sh https://github.com/ChillerDragon/debian-setup/raw/master/lib/nvidia.sh
+
+# alternative that might be outdated or down
+wget -O /tmp/gpu.sh https://paste.zillyhuhn.com/gpu
+
+source /tmp/gpu.sh
+install_cpu_drivers
+```
+
 sudo and software
 -----------------
 
