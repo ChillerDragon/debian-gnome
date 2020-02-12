@@ -64,6 +64,7 @@ sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev
 
 Download the discord.deb from their website and then do
 ```
+sudo apt install libgconf-2-4 libappindicator1 libc++1
 wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 sudo dpkg -i /tmp/discord.deb
 sudo apt install -f
