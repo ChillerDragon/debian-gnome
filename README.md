@@ -134,6 +134,18 @@ Desktop icons
 
 get this gnome extension https://extensions.gnome.org/extension/1465/desktop-icons/
 
+
+Privacy in search
+-----------------
+
+By default when pressing superkey and searching things it searches in a bunch of places.
+
+I prefer to only search software and terminal things and do not leak file information in gnome.
+
+```
+gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop']"
+```
+
 start path (alias)
 ------------------
 This alias allows to launch the files browser from commandline

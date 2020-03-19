@@ -161,6 +161,13 @@ echo "Then goto dash to dock settings and set the menu bar where you want"
 # on debian 10 you need a gnome extension called "Desktop Icons"
 gsettings set org.gnome.desktop.background show-desktop-icons true
 
+# I (ChillerDragon) personally used gnome for some time now and never used all these search results
+# when pressing the super key and entering a search term
+# gnome by default searches in all kind of places
+# this can lead to information leak about files you have on your system when searching a application
+# so i PERSONALLY like to keep that off
+gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop']"
+
 # This alias allows to launch the files browser from commandline
 # in the windows style by typing 'start <path>'
 # sadly the mac style 'open <path>' is not possible
