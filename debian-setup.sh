@@ -168,6 +168,12 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 # so i PERSONALLY like to keep that off
 gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop']"
 
+# some GNOME version introduced a emoji shortcut like wtf?
+# it trapped ctrl+shift+e
+# so your fav export hotkey or opening teeworlds editor does not work anymore
+# thats why turning this weird feature off is a big win
+gsettings set org.freedesktop.ibus.panel.emoji hotkey []
+
 # This alias allows to launch the files browser from commandline
 # in the windows style by typing 'start <path>'
 # sadly the mac style 'open <path>' is not possible
