@@ -174,16 +174,6 @@ gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.
 # thats why turning this weird feature off is a big win
 gsettings set org.freedesktop.ibus.panel.emoji hotkey []
 
-# This alias allows to launch the files browser from commandline
-# in the windows style by typing 'start <path>'
-# sadly the mac style 'open <path>' is not possible
-# because open is a linux command already ._.
-if ! grep -q "alias start='" ~/.bash_aliases # only create it once and dont override others with the same name
-then
-  echo "alias start='xdg-open'" >> ~/.bash_aliases
-  echo "create start alias for file system..."
-fi
-
 if [ $is_razer == true ]
 then
   # Let's fix some crucial bugs related to the razer blade stealth
