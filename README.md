@@ -1,4 +1,4 @@
-# debian-setup
+# debian-gnome
 Tested on:
 - razer blade stealth (2018) ( debian 9, debian 10 )
 - razer blade 15 (2019) ( debian 10 )
