@@ -29,7 +29,7 @@ ask_for_razer
 # A guide on how to install a customized debian on Razer Blade Stealth
 # It is designed for this model and windows 10
 # But i am sure it can also be helpful on other operating systems or hardware.
-# usefull video ressource https://www.youtube.com/watch?v=VP9yLn1dnQE
+# useful video ressource https://www.youtube.com/watch?v=VP9yLn1dnQE
 #
 # This guide is made by an complete noob who has no idea what he is doing.
 # And it is designed for people who have no idea how to use an computer.
