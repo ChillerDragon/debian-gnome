@@ -120,7 +120,11 @@ fi
 sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo tee /etc/apt/sources.list
 
 echo "Installing compiler and dev libs..."
-sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python gdb
+sudo apt install \
+    vim build-essential manpages-dev cmake git \
+    libcurl4-openssl-dev libfreetype6-dev libglew-dev \
+    libogg-dev libopus-dev libopusfile-dev libpnglite-dev \
+    libsdl2-dev libwavpack-dev python gdb libreadline-dev
 chiller_dotfiles
 
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
