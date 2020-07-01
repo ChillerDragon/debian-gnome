@@ -75,6 +75,13 @@ then
 	fi
 fi
 
+if [ "$EDITOR" != "vim" ]
+then
+    echo "setting EDITOR to vim ..."
+    echo "" >> ~/.bashrc
+    echo "EDITOR=vim # ChillerDragon (debian-setup.sh)" >> ~/.bashrc
+fi
+
 # Check if the network connection is working. And update the system.
 read -r -d '' cmd << EOM
     apt-get update -y
