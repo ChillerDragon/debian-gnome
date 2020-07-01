@@ -8,7 +8,7 @@ source lib/check_razer.sh
 source lib/chiller_cfg.sh
 source lib/git_repos.sh
 source lib/chiller_tools.sh
-source lib/gpu.sh
+source lib/nvidia.sh
 
 user_name=$USER # overwritten by get_user.sh
 is_razer=false  # overwritten by check_razer.sh
