@@ -100,20 +100,19 @@ read -r -d '' cmd << EOM
     exit;
 EOM
 
-if ! [ -x "$(command -v sudo)" ]
+res=1
+while [ "$res" == "1" ]
+do
+    echo "please enter admin password to install sudo :)"
+    su -c "$cmd";
+    res=$?
+done
+# test if sudo is working
+sudo touch /tmp/sudo-test
+if [ ! -f /tmp/sudo-test ]
 then
-    echo "warning sudo is not installed."
-    res=1
-    while [ "$res" == "1" ]
-    do
-        echo "please enter admin password to install sudo :)"
-        su -c "$cmd";
-        res=$?
-    done
-    # test if sudo is working
-    sudo test
-else
-    echo "sudo is already installed."
+    echo "failed to use sudo"
+    exit 1
 fi
 
 # If you used the CD rom image the sources.list has to be updated
