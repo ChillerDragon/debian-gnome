@@ -18,8 +18,6 @@ function chiller_repos() {
   save_cd ~/Desktop
   mkdir -p git
   save_cd git
-  git clone --recursive https://github.com/ddnet/ddnet
-  git clone --recursive https://github.com/DDNetPP/DDNetPP
   git clone --recursive https://github.com/teeworlds/teeworlds
   git clone https://github.com/matricks/bam
   save_cd bam
