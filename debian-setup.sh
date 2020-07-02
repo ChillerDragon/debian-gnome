@@ -129,7 +129,7 @@ chiller_dotfiles
 
 # Okay now first of all fix the ugly default look before we keep fixing actual bugs.
 # Skip this step if you like the default look or dislike this design https://github.com/daniruiz/Flat-Remix-GTK
-if [ ! -d ~/.themes/Flat-Remix-Blue ] # if guard for script not installing it twice
+if [ ! -d ~/.themes/Flat-Remix-GTK-Blue ] # if guard for script not installing it twice
 then
   echo "installing flat-remix-gtk theme by daniruiz..."
   cd /tmp && rm -rf flat-remix-gtk &&
@@ -137,8 +137,7 @@ then
   mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
   gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue-Dark"
 fi
-
-if [ ! -d ~/.icons/Flat-Remix-GTK-Blue ]
+if [ ! -d ~/.icons/Flat-Remix-Blue ]
 then
   echo "installing flat-remix icon theme by daniruiz..."
   cd /tmp && rm -rf flat-remix &&
