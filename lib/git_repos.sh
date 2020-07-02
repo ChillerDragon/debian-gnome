@@ -1,33 +1,42 @@
 #!/bin/bash
 
 function chiller_repos() {
-  echo "------[git teeworlds repos]------"
-  echo "This step will clone teeworlds and other repos"
-  echo "If you are no ChillerDragon this step is not recommended"
-  echo "load some git repos to $HOME/Desktop/git? [y/N]"
-  read -rn 1 -p "" inp
-  echo ""
-  if [ "$inp" == "y" ]; then
-    echo "Loading some git repos from github..."
-  elif [ "$inp" == "Y" ]; then
-    echo "Loading some git repos from github..."
-  else
-    echo "Skipping git repos..."
+    echo "------[git teeworlds repos]------"
+    echo "This step will clone teeworlds and other repos"
+    echo "If you are no ChillerDragon this step is not recommended"
+    echo "load some git repos to $HOME/Desktop/git? [y/N]"
+    read -rn 1 -p "" inp
+    echo ""
+    if [ "$inp" == "y" ]; then
+        echo "Loading some git repos from github..."
+    elif [ "$inp" == "Y" ]; then
+        echo "Loading some git repos from github..."
+    else
+        echo "Skipping git repos..."
     return
-  fi
-  save_cd ~/Desktop
-  mkdir -p git
-  save_cd git
-  git clone --recursive https://github.com/teeworlds/teeworlds
-  git clone https://github.com/matricks/bam
-  save_cd bam
-  ./make_unix.sh
+    fi
+    save_cd ~/Desktop
+    mkdir -p git
+    save_cd git
+    if [ ! -d teeworlds ]
+    then
+        git clone --recursive https://github.com/teeworlds/teeworlds
+    fi
+    if [ ! -d bam ]
+    then
+        git clone https://github.com/matricks/bam
+    fi
+    if [ ! -f bam/bam ]
+    then
+        save_cd bam
+        ./make_unix.sh
+    fi
 
-  # TODO: https://github.com/ChillerTW/GitSettings
-  # clone and set it up
-  # i think the problem it that the ~/.teeworlds folder doesn't exsist yet
-  # it only gets created on launching tw
-  # maybe create it your self or something like that (needs good testing)
+    # TODO: https://github.com/ChillerTW/GitSettings
+    # clone and set it up
+    # i think the problem it that the ~/.teeworlds folder doesn't exsist yet
+    # it only gets created on launching tw
+    # maybe create it your self or something like that (needs good testing)
 }
 
 function extern_blender() {
