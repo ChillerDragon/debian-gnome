@@ -20,7 +20,11 @@ function chiller_repos() {
     save_cd git
     if [ ! -d teeworlds ]
     then
-        git clone --recursive https://github.com/teeworlds/teeworlds
+        git clone --recursive git@github.com:ChillerDragon/teeworlds
+        cd teeworlds
+        git remote add vanilla https://github.com/teeworlds/teeworlds
+        git fetch vanilla
+        cd ..
     fi
     if [ ! -d bam ]
     then
