@@ -22,7 +22,7 @@ function install_crools() {
     if [ ! -d ~/Desktop/git/crools ]
     then
         mkdir -p ~/Desktop/git
-        cd ~/Desktop/git
+        cd ~/Desktop/git || exit 1
         git clone git@github.com:ChillerDragon/crools
     fi
     echo "# ChillerDragon/debian-setup crools" >> ~/.bashrc
@@ -63,7 +63,7 @@ EOF
     echo ""
     echo "PRESS ENTER TO CONTINUE"
     echo "it is recommended tho to kill the script and start again"
-    read
+    read -r
 }
 
 function install_um() {
@@ -73,7 +73,7 @@ function install_um() {
         return
     fi
     mkdir -p ~/Desktop/git-extern
-    cd ~/Desktop/git-extern
+    cd ~/Desktop/git-extern || exit 1
 
     # build um
     # https://github.com/sinclairtarget/um/issues/26#issuecomment-554677155
