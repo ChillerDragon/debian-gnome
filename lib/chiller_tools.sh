@@ -139,7 +139,6 @@ function install_chillertools() {
     fi
     # the firefox thingy is broken
     # setup_firefox
-    setup_git
     install_crools
     install_ruby
     install_um
