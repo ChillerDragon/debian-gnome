@@ -19,12 +19,14 @@ function install_crools() {
         echo "[*] crools are already installed."
         return
     fi
+    mkdir -p ~/Desktop/git
+    cd ~/Desktop/git || exit 1
     if [ ! -d ~/Desktop/git/crools ]
     then
-        mkdir -p ~/Desktop/git
-        cd ~/Desktop/git || exit 1
         git clone git@github.com:ChillerDragon/crools
     fi
+    cd crools || exit 1
+    crools
     echo "# ChillerDragon/debian-setup crools" >> ~/.bashrc
     echo "export PATH=\"\$HOME/Desktop/git/crools:\$PATH\"" >> ~/.bashrc
 }
