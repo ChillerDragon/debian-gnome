@@ -170,6 +170,11 @@ then
     /usr/local/bin/gnome-shell-extension-installer 307  # dash to dock
     /usr/local/bin/gnome-shell-extension-installer 442  # drop down terminal
     /usr/local/bin/gnome-shell-extension-installer 1465 # desktop icons
+
+    # configure extensions
+    dconf write /org/gnome/shell/extensions/dash-to-dock/dock-position "'BOTTOM'"
+    dconf write /org/zzrough/gs-extensions/drop-down-terminal/enable-animation false
+    dconf write /org/zzrough/gs-extensions/drop-down-terminal/real-shortcut "['<Primary>dead_circumflex']"
 fi
 
 # commands to start gnome tweak tool
