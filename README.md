@@ -50,8 +50,9 @@ source /tmp/gpu.sh
 install_cpu_drivers
 ```
 
-sudo and software
------------------
+# DEBIAN
+
+### sudo and software
 
 If used a CD image remove cdrom repos to connect to network.
 ```
@@ -78,44 +79,28 @@ Then use sudo to install stuff
 ```
 sudo apt install vim build-essential manpages-dev cmake git libcurl4-openssl-dev libfreetype6-dev libglew-dev libogg-dev libopus-dev libopusfile-dev libpnglite-dev libsdl2-dev libwavpack-dev python
 ```
-
-**Installing discord**
-```
-sudo apt install libgconf-2-4 libappindicator1 libc++1
-wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo dpkg -i /tmp/discord.deb
-sudo apt install -f
-```
-
-**Installing vscode**
+### Installing vscode
 ```
 wget -O /tmp/vscode.deb https://code.visualstudio.com/docs/?dv=linux64_deb
 sudo dpkg -i /tmp/vscode.deb
 sudo apt install -f
 ```
 
-Look and feel
----------------
-Flat remix icon and themes (make sure to select them in the gnome tweak tool)
-```
-cd /tmp && rm -rf flat-remix-gtk &&
-git clone https://github.com/daniruiz/flat-remix-gtk &&
-mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
-gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
+# GNOME SETTINGS
 
-cd /tmp && rm -rf flat-remix &&
-git clone https://github.com/daniruiz/flat-remix &&
-mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
-gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
+If you want to extend gnome settings execute this command and change settings in the UI
+```
+dconf watch /
 ```
 
-Activate Desktop
+### Activate Desktop
+
+get this gnome extension https://extensions.gnome.org/extension/1465/desktop-icons/
 ```
 gsettings set org.gnome.desktop.background show-desktop-icons true
 ```
 
-dash to dock
-------------
+### dash to dock
 
 Now fix the dash menu and add a nice bottom dock.
 Install dash to dock extension either in browser at:
@@ -129,14 +114,7 @@ Then goto dash to dock settings and set the menu bar where you want
 gnome-tweak-tool
 ```
 
-Desktop icons
--------------
-
-get this gnome extension https://extensions.gnome.org/extension/1465/desktop-icons/
-
-
-Privacy in search
------------------
+### Privacy in search
 
 By default when pressing superkey and searching things it searches in a bunch of places.
 
@@ -146,16 +124,21 @@ I prefer to only search software and terminal things and do not leak file inform
 gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop']"
 ```
 
-start path (alias)
-------------------
-This alias allows to launch the files browser from commandline
-in the windows style by typing 'start (path)'
+### Look and feel
+Flat remix icon and themes (make sure to select them in the gnome tweak tool)
 ```
-echo "alias start='xdg-open'" >> ~/.bash_aliases
+cd /tmp && rm -rf flat-remix-gtk &&
+git clone https://github.com/daniruiz/flat-remix-gtk &&
+mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/ &&
+gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Dark"
+
+cd /tmp && rm -rf flat-remix &&
+git clone https://github.com/daniruiz/flat-remix &&
+mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
+gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 ```
 
-razer related bugs
-------------------
+# RAZER HARDWARE
 
 Let's fix some crucial bugs related to the razer blade stealth.
 They might occur on other razer laptops aswell.
@@ -209,4 +192,3 @@ sudo apt-get install xinput -y
 xinput set-prop "AT Raw Set 2 keyboard" "Device Enabled" 0
 ```
 
-If you encounter any problems the debian-setup.sh script has a lot of comments.
