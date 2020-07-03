@@ -167,8 +167,9 @@ if [ ! -f /usr/local/bin/gnome-shell-extension-installer ]
 then
     sudo wget -O /usr/local/bin/gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
     sudo chmod +x /usr/local/bin/gnome-shell-extension-installer
-    /usr/local/bin/gnome-shell-extension-installer 307 # dash to dock
-    /usr/local/bin/gnome-shell-extension-installer 442 # drop down terminal
+    /usr/local/bin/gnome-shell-extension-installer 307  # dash to dock
+    /usr/local/bin/gnome-shell-extension-installer 442  # drop down terminal
+    /usr/local/bin/gnome-shell-extension-installer 1465 # desktop icons
 fi
 
 # commands to start gnome tweak tool
