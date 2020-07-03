@@ -170,6 +170,7 @@ then
     /usr/local/bin/gnome-shell-extension-installer 307  # dash to dock
     /usr/local/bin/gnome-shell-extension-installer 442  # drop down terminal
     /usr/local/bin/gnome-shell-extension-installer 1465 # desktop icons
+    # /usr/local/bin/gnome-shell-extension-installer 545  # hide top bar
 
     # configure extensions
     dconf write /org/gnome/shell/extensions/dash-to-dock/dock-position "'BOTTOM'"
