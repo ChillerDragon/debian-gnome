@@ -147,8 +147,9 @@ then
   gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 fi
 
-# Most important for the look! The background:
+# Most important for the look! The background and login screen:
 gsettings set org.gnome.desktop.background picture-uri 'file:////usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml'
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/desktop-base/joy-theme/wallpaper/gnome-background.xml'
 
 # Invert touchpad scroll direction
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
