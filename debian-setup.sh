@@ -171,6 +171,8 @@ then
     /usr/local/bin/gnome-shell-extension-installer 442  # drop down terminal
     /usr/local/bin/gnome-shell-extension-installer 1465 # desktop icons
     # /usr/local/bin/gnome-shell-extension-installer 545  # hide top bar
+    # better use this
+    # sudo apt install gnome-shell-extension-autohidetopbar
 
     # configure extensions
     dconf write /org/gnome/shell/extensions/dash-to-dock/dock-position "'BOTTOM'"
