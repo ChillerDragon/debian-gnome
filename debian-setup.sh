@@ -125,6 +125,7 @@ sudo apt install \
     vim build-essential manpages-dev cmake git \
     libcurl4-openssl-dev libfreetype6-dev libglew-dev \
     libogg-dev libopus-dev libopusfile-dev libpnglite-dev \
+    libnotify-dev \
     libsdl2-dev libwavpack-dev python gdb libreadline-dev
 chiller_dotfiles
 
