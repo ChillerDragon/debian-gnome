@@ -123,6 +123,26 @@ function setup_firefox() {
     fi
 }
 
+function install_honeylocker() {
+    if [ -f /usr/local/bin/honeylocker.py ]
+    then
+        return
+    fi
+    sudo apt install python3 python3-pip ffmpeg
+    python3 -m pip install pyxhook
+    cd /usr/local/bin
+    sudo wget https://raw.githubusercontent.com/ChillerDragon/HoneyLocker/master/honeylocker.py
+    sudo chmod +x honeylocker.py
+}
+
+function install_keylogger() {
+    mkdir -p "$HOME/Desktop/git"
+    cd "$HOME/Desktop/git" || exit 1
+    git clone git@github.com:ChillerDragon/keylogger
+    cd keylogger
+    git remote add upstream https://github.com/GiacomoLaw/Keylogger
+}
+
 function install_chillertools() {
     echo ""
     echo "If you are ChillerDragon press y"
@@ -144,5 +164,7 @@ function install_chillertools() {
     install_crools
     install_ruby
     install_um
+    install_honeylocker
+    install_keylogger
 }
 
