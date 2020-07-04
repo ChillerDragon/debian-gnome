@@ -122,7 +122,7 @@ sed '/^deb cdrom:.*/ s/deb cdrom:/# deb cdrom:/' /etc/apt/sources.list | sudo te
 
 echo "Installing compiler and dev libs..."
 sudo apt install \
-    vim screen build-essential manpages-dev cmake git \
+    vim build-essential manpages-dev cmake git \
     libcurl4-openssl-dev libfreetype6-dev libglew-dev \
     libogg-dev libopus-dev libopusfile-dev libpnglite-dev \
     libnotify-dev \

@@ -14,11 +14,6 @@ function setup_git() {
 }
 
 function install_crools() {
-    if grep -q 'ChillerDragon/debian-setup crools' ~/.bashrc
-    then
-        echo "[*] crools are already installed."
-        return
-    fi
     mkdir -p ~/Desktop/git
     cd ~/Desktop/git || exit 1
     if [ ! -d ~/Desktop/git/crools ]
@@ -27,8 +22,29 @@ function install_crools() {
     fi
     cd crools || exit 1
     crools
-    echo "# ChillerDragon/debian-setup crools" >> ~/.bashrc
-    echo "export PATH=\"\$HOME/Desktop/git/crools:\$PATH\"" >> ~/.bashrc
+    if ! grep -q 'ChillerDragon/debian-setup crools' ~/.bashrc
+    then
+        echo "# ChillerDragon/debian-setup crools" >> ~/.bashrc
+        echo "export PATH=\"\$HOME/Desktop/git/crools:\$PATH\"" >> ~/.bashrc
+    fi
+    # TODO: refactor this code using https://askubuntu.com/a/597414
+    gnome_keys_dot="org.gnome.settings-daemon.plugins.media-keys"
+    gnome_kb_dot="$gnome_keys_dot.custom-keybinding"
+    gnome_kb_path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    # custom0="$(gsettings get $gnome_kb_dot:$gnome_kb_path/custom0/ name)"
+    gnome_keybindings="$(gsettings get \
+        org.gnome.settings-daemon.plugins.media-keys \
+        custom-keybindings)"
+    if [ "$gnome_keybindings" == "@as []" ]
+    then
+        echo "installing shortcut"
+        cmd0="gsettings set $gnome_kb_dot:$gnome_kb_path/custom0/"
+        eval "$cmd0 binding '<Primary><Alt>3'"
+        eval "$cmd0 name 'crapshot'"
+        eval "$cmd0 command '$(pwd)/crapshot'"
+        cmds="gsettings set $gnome_keys_dot custom-keybindings"
+        eval "$cmds \"['$gnome_kb_path/custom0/']\""
+    fi
 }
 
 function install_ruby() {
@@ -159,6 +175,7 @@ function install_chillertools() {
         echo "[*] skipping chillertools ..."
         return
     fi
+    sudo apt install screen maim gnustep-gui-runtime
     # the firefox thingy is broken
     # setup_firefox
     install_crools
