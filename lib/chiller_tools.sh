@@ -27,24 +27,24 @@ function install_crools() {
         echo "# ChillerDragon/debian-setup crools" >> ~/.bashrc
         echo "export PATH=\"\$HOME/Desktop/git/crools:\$PATH\"" >> ~/.bashrc
     fi
-    # TODO: refactor this code using https://askubuntu.com/a/597414
-    gnome_keys_dot="org.gnome.settings-daemon.plugins.media-keys"
-    gnome_kb_dot="$gnome_keys_dot.custom-keybinding"
-    gnome_kb_path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
-    # custom0="$(gsettings get $gnome_kb_dot:$gnome_kb_path/custom0/ name)"
+    cd "$SETUP_PATH" || exit 1
+    shortcut_bin=./bin/set_customshortcut.py
+    if [ ! -f "$shortcut_bin" ]
+    then
+        return
+    fi
+    if [ ! -x "$(command -v python3)" ]
+    then
+        return
+    fi
     gnome_keybindings="$(gsettings get \
         org.gnome.settings-daemon.plugins.media-keys \
         custom-keybindings)"
     if [ "$gnome_keybindings" == "@as []" ]
-    then
-        echo "installing shortcut"
-        cmd0="gsettings set $gnome_kb_dot:$gnome_kb_path/custom0/"
-        eval "$cmd0 binding '<Primary><Alt>3'"
-        eval "$cmd0 name 'crapshot'"
-        eval "$cmd0 command '$(pwd)/crapshot'"
-        cmds="gsettings set $gnome_keys_dot custom-keybindings"
-        eval "$cmds \"['$gnome_kb_path/custom0/']\""
-    fi
+	then
+		eval "python3 $shortcut_bin 'crapshot screen' '/home/chiller/Desktop/git/crools/crapshot' '<Primary><Alt>3'"
+		eval "python3 $shortcut_bin 'crapshot selection' '/home/chiller/Desktop/git/crools/crapshot --select' '<Primary><Alt>4'"
+	fi
 }
 
 function install_ruby() {
@@ -175,7 +175,7 @@ function install_chillertools() {
         echo "[*] skipping chillertools ..."
         return
     fi
-    sudo apt install screen maim gnustep-gui-runtime pass
+    sudo apt install screen maim gnustep-gui-runtime pass python3
     # the firefox thingy is broken
     # setup_firefox
     install_crools
