@@ -41,10 +41,10 @@ function install_crools() {
         org.gnome.settings-daemon.plugins.media-keys \
         custom-keybindings)"
     if [ "$gnome_keybindings" == "@as []" ]
-	then
-		eval "python3 $shortcut_bin 'crapshot screen' '/home/chiller/Desktop/git/crools/crapshot' '<Primary><Alt>3'"
-		eval "python3 $shortcut_bin 'crapshot selection' '/home/chiller/Desktop/git/crools/crapshot --select' '<Primary><Alt>4'"
-	fi
+    then
+        eval "python3 $shortcut_bin 'crapshot screen' '/home/chiller/Desktop/git/crools/crapshot' '<Primary><Alt>3'"
+        eval "python3 $shortcut_bin 'crapshot selection' '/home/chiller/Desktop/git/crools/crapshot --select' '<Primary><Alt>4'"
+    fi
 }
 
 function install_ruby() {
