@@ -175,7 +175,7 @@ function install_chillertools() {
         echo "[*] skipping chillertools ..."
         return
     fi
-    sudo apt install screen maim gnustep-gui-runtime
+    sudo apt install screen maim gnustep-gui-runtime pass
     # the firefox thingy is broken
     # setup_firefox
     install_crools
