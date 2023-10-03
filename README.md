@@ -121,7 +121,7 @@ By default when pressing superkey and searching things it searches in a bunch of
 I prefer to only search software and terminal things and do not leak file information in gnome.
 
 ```
-gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop']"
+gsettings set org.gnome.desktop.search-providers disabled "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.clocks.desktop', 'seahorse.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Epiphany.desktop', 'firefox.desktop']"
 ```
 
 ### Look and feel
