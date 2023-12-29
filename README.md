@@ -100,6 +100,14 @@ get this gnome extension https://extensions.gnome.org/extension/1465/desktop-ico
 gsettings set org.gnome.desktop.background show-desktop-icons true
 ```
 
+### Gaming with touchpad
+
+Don't ask
+
+```
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
+```
+
 ### dash to dock
 
 Now fix the dash menu and add a nice bottom dock.
